@@ -78,12 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{3eabadb2-b71d-4df9-b1de-72445b686166}</Project>
+      <Project>{2fcc47c8-c450-4e9d-85f9-2ea54b7a82f3}</Project>
       <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaEntidades\CapaEntidad.csproj">
-      <Project>{aa01f5e6-dae4-429c-9397-f060dc08d0c8}</Project>
-      <Name>CapaEntidad</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{237719f9-e322-4ae6-a164-138239b99558}</Project>

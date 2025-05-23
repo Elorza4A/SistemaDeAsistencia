@@ -2,9 +2,8 @@
 using System;
 using System.Data.SqlClient;
 using System.Data;
-using CapaDatos.Modelos;
-using CapaEntidades.Entidades;
-
+using CapaDatos;
+using CapaNegocio.Negocios;
 
 namespace UnitTest.Test
 {
@@ -20,22 +19,18 @@ namespace UnitTest.Test
         [TestMethod]
         public void ConexionOKTest()
         {
-            SqlConnection conexion = new SqlConnection();
             try
             {
-                conexion = Conexion.CrearInstancia().CrearConexion();
-                conexion.Open();
-                Assert.AreEqual(ConnectionState.Open, conexion.State);
+                using (var bd = new AsistenciaEntities())
+                {
+                    Assert.IsTrue(bd.Database.Exists(), "No existe la base de datos");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Assert.Fail("No se pudo crear la conexion" + ex.Message);
+                Assert.Fail(ex.Message);
             }
-            finally
-            {
-                if(conexion.State == ConnectionState.Open)
-                    conexion.Close();
-            }
+
         }
 
         /// <summary>
@@ -44,20 +39,67 @@ namespace UnitTest.Test
         [TestMethod]
         public void InsertarEmpleadoTest()
         {
-            byte[] datos = new byte[] { 0x01, 0x02, 0x03, 0xFF };
-            Empleado empleado = new Empleado("Alexis", datos);
-
-            Datos_Empleado datosEmpleado = new Datos_Empleado();
-
             try
             {
-                datosEmpleado.InsertarEmpleado(empleado);
+                EmpleadoPersonal empleado = new EmpleadoPersonal();
+                empleado.nombre = "Alexis";
+                empleado.apellidoP = "Elorza";
+                empleado.apellidoM = "Obregon";
+                empleado.fechaNac = DateTime.Now;
+                empleado.telefono = "8130718981";
+                empleado.correo = "hola@uanl.com";
+                empleado.direccion = "Monterrey";
+                empleado.EmpleadoEmpresa = new EmpleadoEmpresa();
+                empleado.EmpleadoEmpresa.idEmpleado = empleado.idEmpleado;
+                empleado.EmpleadoEmpresa.fechaIng = DateTime.Now;
+                empleado.EmpleadoEmpresa.tipoPuesto = 1;
+                empleado.EmpleadoEmpresa.tipoContrato = 4;
+                empleado.EmpleadoEmpresa.horaEntrada = new TimeSpan(8, 0, 0);
+                empleado.EmpleadoEmpresa.horaSalida = new TimeSpan(17, 0, 0);
+                empleado.EmpleadoEmpresa.salario = 15000m;
+                empleado.EmpleadoEmpresa.estatus = true;
+
+                bool condicion = NegocioEmpleado.InsertarEmpleado(empleado);
+                Assert.IsTrue(condicion, "No se registro el empleado");
             }
             catch (Exception ex)
             {
-                Assert.Fail("No se pudo insertar el empleado: " + ex.Message);
-            }            
-            
+                Assert.Fail("Error: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Verifica que un empleado sea dado de baja ante el sistema
+        /// </summary>
+        [TestMethod]
+        public void BajaEmpleadoTest()
+        {
+            try
+            {
+                bool condicion = NegocioEmpleado.BajaEmpleado(16);
+                Assert.IsTrue(condicion, "No se dio de baja el empleado");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Error: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Verifica que un empleado sea reactivado ante el sistema
+        /// </summary>
+        [TestMethod]
+        public void ReactivarEmpleadoTest()
+        {
+            try
+            {
+                bool condicion = NegocioEmpleado.ReactivarEmpleado(21);
+                Assert.IsTrue(condicion, "No se reactivo el empleado");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Error: " + ex.Message);
+            }
         }
     }
 }
