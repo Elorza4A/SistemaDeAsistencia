@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a03c567c1b4a40ba85e39d0becaed7d2" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="AsistenciaModel.Asistencia" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.ClaveTemporal" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Contrato" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.EmpleadoEmpresa" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.EmpleadoPersonal" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Puesto" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Usuario" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="AsistenciaModel.FK_IdEmpleado_Asistencia" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK_IdEmpleado_ClaveTemporal" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK_TipoContrato_EE" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK_IdEmpleado_EE" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK_IdEmpleado_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK_TipoPuesto_EE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
