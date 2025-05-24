@@ -77,7 +77,7 @@ namespace CapaNegocio.Negocios
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="Exception">Si no encuentra un empleado arroja una excepcion</exception>
-        public static EmpleadoPersonal VerificarEmpleado(int id)
+        public static EmpleadoPersonal VerificarAsistenciaEmpleado(int id)
         {
             try
             {
@@ -85,8 +85,32 @@ namespace CapaNegocio.Negocios
                 {
                     EmpleadoPersonal empleado = bd.EmpleadoPersonal.Find(id);
 
+                    // si no encuentra empleado se sale
                     if (empleado == null)
                         throw new Exception("No se encontro el empleado");
+
+                    Asistencia asistencia;
+
+                    // busca una asistencia del empleado el dia de hoy
+                    asistencia = bd.Asistencia
+                                    .FirstOrDefault(a => a.idEmpleado == id && a.dia == DateTime.Today);
+
+                    // si no existe lo crea
+                    if (asistencia == null)
+                    {
+                        asistencia = new Asistencia();
+                        asistencia.idEmpleado = id;
+                        asistencia.dia= DateTime.Now;
+                        asistencia.horaEntrada = DateTime.Now.TimeOfDay;
+                        bd.Asistencia.Add(asistencia);
+                    }    
+                    else if (asistencia.horaSalida == null) // si existe y no ha marcado salida
+                        asistencia.horaSalida= DateTime.Now.TimeOfDay;
+                    else
+                        throw new Exception("Ya marco asistencia");
+
+                    // se guardan los cambios
+                    bd.SaveChanges();
 
                     return empleado;
                 }
@@ -156,6 +180,37 @@ namespace CapaNegocio.Negocios
                 throw new Exception(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Obtiene
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static List<EmpleadoEmpresa> ObtenerEmpleados()
+        {
+            List<EmpleadoEmpresa> empleados = new List<EmpleadoEmpresa>();
+            try
+            {
+                using (AsistenciaEntities db = new AsistenciaEntities())
+                {
+                    // obtiene toda la base
+                   // empleados = db.EmpleadoEmpresa.ToList();
+
+                    empleados = db.EmpleadoEmpresa.Include("EmpleadoPersonal").ToList();
+
+                    // si esta vacio
+                    if (empleados == null)
+                        throw new Exception("No hay tipos de contratos.");
+                    return empleados;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
     }
 
     

@@ -38,7 +38,7 @@
             // picHuella
             // 
             this.picHuella.Location = new System.Drawing.Point(131, 133);
-            this.picHuella.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHuella.Margin = new System.Windows.Forms.Padding(4);
             this.picHuella.Name = "picHuella";
             this.picHuella.Size = new System.Drawing.Size(174, 204);
             this.picHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,10 +72,11 @@
             this.Controls.Add(this.picEmpleado);
             this.Controls.Add(this.picHuella);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmChecarAsistencia";
             this.Text = "FrmChecarAsistencia";
             this.Load += new System.EventHandler(this.FrmChecarAsistencia_Load);
+            this.Leave += new System.EventHandler(this.FrmChecarAsistencia_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.picHuella)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEmpleado)).EndInit();
             this.ResumeLayout(false);

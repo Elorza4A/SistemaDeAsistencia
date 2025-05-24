@@ -100,7 +100,7 @@ namespace CapaPresentacion.Formularios
             }
         }
 
-        protected Bitmap MapaHuella(ref DPFP.Sample sample)
+        protected Bitmap CrearMapaHuella(ref DPFP.Sample sample)
         {
             DPFP.Capture.SampleConversion convertidor = new SampleConversion(); // variable conversor de sample
             Bitmap mapaBits = null;
@@ -110,13 +110,13 @@ namespace CapaPresentacion.Formularios
             return mapaBits;
         }
 
-        private void ImagenHuella(Bitmap bmp)
+        private void PonerImagenHuella(Bitmap bmp)
         {
             picHuella.Image = bmp;
         }
 
 
-        protected DPFP.FeatureSet obtenerHuella(ref Sample sample, DPFP.Processing.DataPurpose purpose)
+        protected DPFP.FeatureSet ObtenerHuellaCaracteristicas(ref Sample sample, DPFP.Processing.DataPurpose purpose)
         {
             DPFP.Processing.FeatureExtraction extractor = new DPFP.Processing.FeatureExtraction();
             DPFP.Capture.CaptureFeedback info = DPFP.Capture.CaptureFeedback.None;
@@ -132,7 +132,7 @@ namespace CapaPresentacion.Formularios
 
         protected void Procesar(ref Sample sample)
         {
-            DPFP.FeatureSet caracteristicas = obtenerHuella(ref sample, DPFP.Processing.DataPurpose.Enrollment);
+            DPFP.FeatureSet caracteristicas = ObtenerHuellaCaracteristicas(ref sample, DPFP.Processing.DataPurpose.Enrollment);
             if (caracteristicas != null)
                 try
                 {
@@ -169,7 +169,7 @@ namespace CapaPresentacion.Formularios
 
         public void OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)
         {
-            ImagenHuella(MapaHuella(ref Sample));
+            PonerImagenHuella(CrearMapaHuella(ref Sample));
             Procesar(ref Sample);
         }
 
@@ -180,7 +180,7 @@ namespace CapaPresentacion.Formularios
 
         public void OnFingerTouch(object Capture, string ReaderSerialNumber)
         {
-            //MessageBox.Show("Hola");
+            
 
         }
 

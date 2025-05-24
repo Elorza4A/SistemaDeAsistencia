@@ -29,5 +29,13 @@ namespace CapaPresentacion.Formularios
             frmAltaUsuario.ShowDialog();
             this.Show();
         }
+
+        private void checarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmChecarAsistencia frm = new FrmChecarAsistencia();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

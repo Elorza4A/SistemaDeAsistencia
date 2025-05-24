@@ -37,6 +37,7 @@
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteMensualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,33 +67,34 @@
             // altaEmpleadoToolStripMenuItem
             // 
             this.altaEmpleadoToolStripMenuItem.Name = "altaEmpleadoToolStripMenuItem";
-            this.altaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.altaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.altaEmpleadoToolStripMenuItem.Text = "Alta empleado";
             this.altaEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.altaEmpleadoToolStripMenuItem_Click);
             // 
             // bajaEmpleadoToolStripMenuItem
             // 
             this.bajaEmpleadoToolStripMenuItem.Name = "bajaEmpleadoToolStripMenuItem";
-            this.bajaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bajaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.bajaEmpleadoToolStripMenuItem.Text = "Baja empleado";
             // 
             // verEmpleadosToolStripMenuItem
             // 
             this.verEmpleadosToolStripMenuItem.Name = "verEmpleadosToolStripMenuItem";
-            this.verEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.verEmpleadosToolStripMenuItem.Text = "Ver empleados";
             // 
             // editarEmpleadoToolStripMenuItem
             // 
             this.editarEmpleadoToolStripMenuItem.Name = "editarEmpleadoToolStripMenuItem";
-            this.editarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.editarEmpleadoToolStripMenuItem.Text = "Editar empleado";
             // 
             // asistenciaToolStripMenuItem
             // 
             this.asistenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteMensualToolStripMenuItem,
-            this.reporteSemanaToolStripMenuItem});
+            this.reporteSemanaToolStripMenuItem,
+            this.checarToolStripMenuItem});
             this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
             this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
             this.asistenciaToolStripMenuItem.Text = "Asistencia";
@@ -100,15 +102,22 @@
             // reporteMensualToolStripMenuItem
             // 
             this.reporteMensualToolStripMenuItem.Name = "reporteMensualToolStripMenuItem";
-            this.reporteMensualToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.reporteMensualToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reporteMensualToolStripMenuItem.Text = "Reporte mensual";
             // 
             // reporteSemanaToolStripMenuItem
             // 
             this.reporteSemanaToolStripMenuItem.Name = "reporteSemanaToolStripMenuItem";
-            this.reporteSemanaToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.reporteSemanaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reporteSemanaToolStripMenuItem.Text = "Reporte semana";
             this.reporteSemanaToolStripMenuItem.Click += new System.EventHandler(this.reporteSemanaToolStripMenuItem_Click);
+            // 
+            // checarToolStripMenuItem
+            // 
+            this.checarToolStripMenuItem.Name = "checarToolStripMenuItem";
+            this.checarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checarToolStripMenuItem.Text = "Checar";
+            this.checarToolStripMenuItem.Click += new System.EventHandler(this.checarToolStripMenuItem_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -141,5 +150,6 @@
         private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteMensualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteSemanaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checarToolStripMenuItem;
     }
 }
