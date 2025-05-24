@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using CapaDatos;
 using CapaNegocio.Negocios;
+using System.IO;
 
 namespace UnitTest.Test
 {
@@ -39,10 +40,11 @@ namespace UnitTest.Test
         [TestMethod]
         public void InsertarEmpleadoTest()
         {
+            byte[] datos = new byte[] { 0x01, 0xFF, 0x3A, 0x00 };
             try
             {
                 EmpleadoPersonal empleado = new EmpleadoPersonal();
-                empleado.nombre = "Alexis";
+                empleado.nombre = "felipe";
                 empleado.apellidoP = "Elorza";
                 empleado.apellidoM = "Obregon";
                 empleado.fechaNac = DateTime.Now;
@@ -54,13 +56,33 @@ namespace UnitTest.Test
                 empleado.EmpleadoEmpresa.fechaIng = DateTime.Now;
                 empleado.EmpleadoEmpresa.tipoPuesto = 1;
                 empleado.EmpleadoEmpresa.tipoContrato = 4;
-                empleado.EmpleadoEmpresa.horaEntrada = new TimeSpan(8, 0, 0);
-                empleado.EmpleadoEmpresa.horaSalida = new TimeSpan(17, 0, 0);
+                empleado.EmpleadoEmpresa.horaEntrada = TimeSpan.Parse("08:00:00");
+                empleado.EmpleadoEmpresa.horaSalida = TimeSpan.Parse("18:00:00");
                 empleado.EmpleadoEmpresa.salario = 15000m;
                 empleado.EmpleadoEmpresa.estatus = true;
+                empleado.EmpleadoEmpresa.huella = datos;
+                //empleado.foto = File.ReadAllBytes("C:\\Users\\alexe\\source\\repos\\SistemaDeAsistencia\\UnitTest\\Resources\\BobToronja.jpg");
 
                 bool condicion = NegocioEmpleado.InsertarEmpleado(empleado);
                 Assert.IsTrue(condicion, "No se registro el empleado");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Error: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Verifica que un empleado sea reactivado ante el sistema
+        /// </summary>
+        [TestMethod]
+        public void VerificarEmpleadoTest()
+        {
+            try
+            {
+                EmpleadoPersonal empleado = NegocioEmpleado.VerificarEmpleado(21);
+                Console.WriteLine(empleado.nombre);
+                Assert.IsTrue(empleado != null, "No se reactivo el empleado");
             }
             catch (Exception ex)
             {

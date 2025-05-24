@@ -56,6 +56,7 @@
           <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="correo" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="foto" Type="image" />
         </EntityType>
         <EntityType Name="Puesto">
           <Key>
@@ -243,6 +244,7 @@
           <Property Name="correo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_IdEmpleado_EE" FromRole="EmpleadoPersonal" ToRole="EmpleadoEmpresa" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Puesto">
           <Key>
@@ -418,6 +420,7 @@
           <EntitySetMapping Name="EmpleadoPersonal">
             <EntityTypeMapping TypeName="AsistenciaModel.EmpleadoPersonal">
               <MappingFragment StoreEntitySet="EmpleadoPersonal">
+                <ScalarProperty Name="foto" ColumnName="foto" />
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellidoM" ColumnName="apellidoM" />

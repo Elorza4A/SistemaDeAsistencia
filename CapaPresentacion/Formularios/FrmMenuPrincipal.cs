@@ -16,5 +16,18 @@ namespace CapaPresentacion.Formularios
         {
             InitializeComponent();
         }
+
+        private void reporteSemanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void altaEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAltaUsuario frmAltaUsuario = new FrmAltaUsuario();
+            this.Hide();
+            frmAltaUsuario.ShowDialog();
+            this.Show();
+        }
     }
 }

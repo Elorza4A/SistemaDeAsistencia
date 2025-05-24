@@ -7,16 +7,44 @@ using CapaDatos;
 
 namespace CapaNegocio.Negocios
 {
-    public class NegocioEmpleado
+    public static class NegocioEmpleado
     {
         public static bool InsertarEmpleado(EmpleadoPersonal emp)
         {
             try
             {
                 using (var bd = new AsistenciaEntities())
-                {
+                {                        
                     bd.EmpleadoPersonal.Add(emp);
                     return bd.SaveChanges() > 0;
+                }
+
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var error in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Propiedad: {error.PropertyName} - Error: {error.ErrorMessage}");
+                    }
+                }
+                return false;
+            }
+        }
+
+        public static EmpleadoPersonal VerificarEmpleado(int id)
+        {
+            try
+            {
+                using (var bd = new AsistenciaEntities())
+                {
+                    EmpleadoPersonal empleado = bd.EmpleadoPersonal.Find(id);
+
+                    if (empleado == null)
+                        throw new Exception("No se encontro el empleado");
+
+                    return empleado;
                 }
             }
             catch (Exception ex)
@@ -74,5 +102,5 @@ namespace CapaNegocio.Negocios
         }
     }
 
-    public static bool 
+    
 }
