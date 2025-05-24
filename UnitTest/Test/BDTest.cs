@@ -5,6 +5,7 @@ using System.Data;
 using CapaDatos;
 using CapaNegocio.Negocios;
 using System.IO;
+using System.Collections.Generic;
 
 namespace UnitTest.Test
 {
@@ -85,7 +86,7 @@ namespace UnitTest.Test
             try
             {
                 // devuelve el empleado si lo encontro
-                EmpleadoPersonal empleado = NegocioEmpleado.VerificarEmpleado(21);
+                EmpleadoPersonal empleado = NegocioEmpleado.VerificarAsistenciaEmpleado(56);
                 Console.WriteLine(empleado.nombre);
                 Assert.IsTrue(empleado != null, "No se reactivo el empleado");
             }
@@ -133,6 +134,25 @@ namespace UnitTest.Test
             catch (Exception ex)
             {
                 Assert.Fail("Error: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// verifica que haya empleados en la base de datos
+        /// </summary>
+        [TestMethod]
+        public void ObtenerEmpleadosTest()
+        {
+            List<EmpleadoEmpresa> empleadosLista = new List<EmpleadoEmpresa>();
+            try
+            {
+                empleadosLista = NegocioEmpleado.ObtenerEmpleados();
+                Console.WriteLine(empleadosLista.Count.ToString());
+                Assert.IsTrue(empleadosLista.Count > 0, "No se pudo obtener los puestos");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.ToString());
             }
         }
     }

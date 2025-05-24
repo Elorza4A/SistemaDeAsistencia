@@ -26,11 +26,9 @@ namespace CapaDatos
         }
     
         public virtual DbSet<Asistencia> Asistencia { get; set; }
-        public virtual DbSet<ClaveTemporal> ClaveTemporal { get; set; }
         public virtual DbSet<Contrato> Contrato { get; set; }
         public virtual DbSet<EmpleadoEmpresa> EmpleadoEmpresa { get; set; }
         public virtual DbSet<EmpleadoPersonal> EmpleadoPersonal { get; set; }
         public virtual DbSet<Puesto> Puesto { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

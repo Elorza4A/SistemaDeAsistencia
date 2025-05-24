@@ -15,14 +15,6 @@
           <Property Name="horaEntrada" Type="time" Precision="7" Nullable="false" />
           <Property Name="horaSalida" Type="time" Precision="7" />
         </EntityType>
-        <EntityType Name="ClaveTemporal">
-          <Key>
-            <PropertyRef Name="idClaveTemporal" />
-          </Key>
-          <Property Name="idClaveTemporal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEmpleado" Type="int" Nullable="false" />
-          <Property Name="clave" Type="varchar" MaxLength="4" Nullable="false" />
-        </EntityType>
         <EntityType Name="Contrato">
           <Key>
             <PropertyRef Name="idContrato" />
@@ -53,7 +45,7 @@
           <Property Name="apellidoM" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="apellidoP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="fechaNac" Type="date" Nullable="false" />
-          <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="18" Nullable="false" />
           <Property Name="correo" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="foto" Type="image" />
@@ -65,14 +57,6 @@
           <Property Name="idPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEmpleado" Type="int" Nullable="false" />
-          <Property Name="passw" Type="varchar" MaxLength="7" Nullable="false" />
         </EntityType>
         <Association Name="FK_IdEmpleado_Asistencia">
           <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
@@ -86,18 +70,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_IdEmpleado_ClaveTemporal">
-          <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
-          <End Role="ClaveTemporal" Type="Self.ClaveTemporal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpleadoEmpresa">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="ClaveTemporal">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_IdEmpleado_EE">
           <End Role="EmpleadoPersonal" Type="Self.EmpleadoPersonal" Multiplicity="1" />
           <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="0..1" />
@@ -106,18 +78,6 @@
               <PropertyRef Name="idEmpleado" />
             </Principal>
             <Dependent Role="EmpleadoEmpresa">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_IdEmpleado_Usuario">
-          <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpleadoEmpresa">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="Usuario">
               <PropertyRef Name="idEmpleado" />
             </Dependent>
           </ReferentialConstraint>
@@ -148,27 +108,17 @@
         </Association>
         <EntityContainer Name="AsistenciaModelStoreContainer">
           <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ClaveTemporal" EntityType="Self.ClaveTemporal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpleadoEmpresa" EntityType="Self.EmpleadoEmpresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpleadoPersonal" EntityType="Self.EmpleadoPersonal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_IdEmpleado_Asistencia" Association="Self.FK_IdEmpleado_Asistencia">
             <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
             <End Role="Asistencia" EntitySet="Asistencia" />
           </AssociationSet>
-          <AssociationSet Name="FK_IdEmpleado_ClaveTemporal" Association="Self.FK_IdEmpleado_ClaveTemporal">
-            <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-            <End Role="ClaveTemporal" EntitySet="ClaveTemporal" />
-          </AssociationSet>
           <AssociationSet Name="FK_IdEmpleado_EE" Association="Self.FK_IdEmpleado_EE">
             <End Role="EmpleadoPersonal" EntitySet="EmpleadoPersonal" />
             <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_IdEmpleado_Usuario" Association="Self.FK_IdEmpleado_Usuario">
-            <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <AssociationSet Name="FK_TipoContrato_EE" Association="Self.FK_TipoContrato_EE">
             <End Role="Contrato" EntitySet="Contrato" />
@@ -194,15 +144,6 @@
           <Property Name="horaSalida" Type="Time" Precision="7" />
           <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_IdEmpleado_Asistencia" FromRole="Asistencia" ToRole="EmpleadoEmpresa" />
         </EntityType>
-        <EntityType Name="ClaveTemporal">
-          <Key>
-            <PropertyRef Name="idClaveTemporal" />
-          </Key>
-          <Property Name="idClaveTemporal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-          <Property Name="clave" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_IdEmpleado_ClaveTemporal" FromRole="ClaveTemporal" ToRole="EmpleadoEmpresa" />
-        </EntityType>
         <EntityType Name="Contrato">
           <Key>
             <PropertyRef Name="idContrato" />
@@ -225,10 +166,8 @@
           <Property Name="huella" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Asistencia" Relationship="Self.FK_IdEmpleado_Asistencia" FromRole="EmpleadoEmpresa" ToRole="Asistencia" />
-          <NavigationProperty Name="ClaveTemporal" Relationship="Self.FK_IdEmpleado_ClaveTemporal" FromRole="EmpleadoEmpresa" ToRole="ClaveTemporal" />
           <NavigationProperty Name="Contrato" Relationship="Self.FK_TipoContrato_EE" FromRole="EmpleadoEmpresa" ToRole="Contrato" />
           <NavigationProperty Name="EmpleadoPersonal" Relationship="Self.FK_IdEmpleado_EE" FromRole="EmpleadoEmpresa" ToRole="EmpleadoPersonal" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_IdEmpleado_Usuario" FromRole="EmpleadoEmpresa" ToRole="Usuario" />
           <NavigationProperty Name="Puesto" Relationship="Self.FK_TipoPuesto_EE" FromRole="EmpleadoEmpresa" ToRole="Puesto" />
         </EntityType>
         <EntityType Name="EmpleadoPersonal">
@@ -240,7 +179,7 @@
           <Property Name="apellidoM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellidoP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechaNac" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="correo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_IdEmpleado_EE" FromRole="EmpleadoPersonal" ToRole="EmpleadoEmpresa" />
@@ -255,15 +194,6 @@
           <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_TipoPuesto_EE" FromRole="Puesto" ToRole="EmpleadoEmpresa" />
         </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-          <Property Name="passw" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EmpleadoEmpresa" Relationship="Self.FK_IdEmpleado_Usuario" FromRole="Usuario" ToRole="EmpleadoEmpresa" />
-        </EntityType>
         <Association Name="FK_IdEmpleado_Asistencia">
           <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
           <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
@@ -272,18 +202,6 @@
               <PropertyRef Name="idEmpleado" />
             </Principal>
             <Dependent Role="Asistencia">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_IdEmpleado_ClaveTemporal">
-          <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
-          <End Role="ClaveTemporal" Type="Self.ClaveTemporal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpleadoEmpresa">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="ClaveTemporal">
               <PropertyRef Name="idEmpleado" />
             </Dependent>
           </ReferentialConstraint>
@@ -312,18 +230,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_IdEmpleado_Usuario">
-          <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="1" />
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpleadoEmpresa">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TipoPuesto_EE">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
           <End Role="EmpleadoEmpresa" Type="Self.EmpleadoEmpresa" Multiplicity="*" />
@@ -338,19 +244,13 @@
         </Association>
         <EntityContainer Name="AsistenciaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Asistencia" EntityType="Self.Asistencia" />
-          <EntitySet Name="ClaveTemporal" EntityType="Self.ClaveTemporal" />
           <EntitySet Name="Contrato" EntityType="Self.Contrato" />
           <EntitySet Name="EmpleadoEmpresa" EntityType="Self.EmpleadoEmpresa" />
           <EntitySet Name="EmpleadoPersonal" EntityType="Self.EmpleadoPersonal" />
           <EntitySet Name="Puesto" EntityType="Self.Puesto" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_IdEmpleado_Asistencia" Association="Self.FK_IdEmpleado_Asistencia">
             <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
             <End Role="Asistencia" EntitySet="Asistencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_IdEmpleado_ClaveTemporal" Association="Self.FK_IdEmpleado_ClaveTemporal">
-            <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-            <End Role="ClaveTemporal" EntitySet="ClaveTemporal" />
           </AssociationSet>
           <AssociationSet Name="FK_TipoContrato_EE" Association="Self.FK_TipoContrato_EE">
             <End Role="Contrato" EntitySet="Contrato" />
@@ -359,10 +259,6 @@
           <AssociationSet Name="FK_IdEmpleado_EE" Association="Self.FK_IdEmpleado_EE">
             <End Role="EmpleadoPersonal" EntitySet="EmpleadoPersonal" />
             <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_IdEmpleado_Usuario" Association="Self.FK_IdEmpleado_Usuario">
-            <End Role="EmpleadoEmpresa" EntitySet="EmpleadoEmpresa" />
-            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <AssociationSet Name="FK_TipoPuesto_EE" Association="Self.FK_TipoPuesto_EE">
             <End Role="Puesto" EntitySet="Puesto" />
@@ -382,15 +278,6 @@
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
                 <ScalarProperty Name="horaEntrada" ColumnName="horaEntrada" />
                 <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ClaveTemporal">
-            <EntityTypeMapping TypeName="AsistenciaModel.ClaveTemporal">
-              <MappingFragment StoreEntitySet="ClaveTemporal">
-                <ScalarProperty Name="idClaveTemporal" ColumnName="idClaveTemporal" />
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -438,15 +325,6 @@
                 <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="AsistenciaModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-                <ScalarProperty Name="passw" ColumnName="passw" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

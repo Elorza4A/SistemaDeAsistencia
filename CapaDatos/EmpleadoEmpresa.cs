@@ -18,8 +18,6 @@ namespace CapaDatos
         public EmpleadoEmpresa()
         {
             this.Asistencia = new HashSet<Asistencia>();
-            this.ClaveTemporal = new HashSet<ClaveTemporal>();
-            this.Usuario = new HashSet<Usuario>();
         }
     
         public int idEmpleado { get; set; }
@@ -34,12 +32,8 @@ namespace CapaDatos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistencia> Asistencia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClaveTemporal> ClaveTemporal { get; set; }
         public virtual Contrato Contrato { get; set; }
         public virtual EmpleadoPersonal EmpleadoPersonal { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario { get; set; }
         public virtual Puesto Puesto { get; set; }
     }
 }
