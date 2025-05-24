@@ -78,6 +78,12 @@
     <Compile Include="Formularios\FrmAltaUsuario.Designer.cs">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmBajaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmBajaUsuario.Designer.cs">
+      <DependentUpon>FrmBajaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmCapturarHuella.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,10 +102,19 @@
     <Compile Include="Formularios\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmVerEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmVerEmpleados.Designer.cs">
+      <DependentUpon>FrmVerEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmBajaUsuario.resx">
+      <DependentUpon>FrmBajaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCapturarHuella.resx">
       <DependentUpon>FrmCapturarHuella.cs</DependentUpon>
@@ -109,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmVerEmpleados.resx">
+      <DependentUpon>FrmVerEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

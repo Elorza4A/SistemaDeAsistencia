@@ -181,6 +181,28 @@ namespace CapaNegocio.Negocios
             }
         }
 
+        public static EmpleadoEmpresa ObtenerEmpleado(int id)
+        {
+            try
+            {
+                using (AsistenciaEntities bd = new AsistenciaEntities())
+                {
+                    EmpleadoEmpresa empleado;
+
+                    empleado = bd.EmpleadoEmpresa.Include("EmpleadoPersonal").FirstOrDefault(e => e.idEmpleado == id);
+
+                    if (empleado == null)
+                        throw new Exception("No se encontro el empleado");
+
+                    return empleado;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         /// <summary>
         /// Obtiene
         /// </summary>

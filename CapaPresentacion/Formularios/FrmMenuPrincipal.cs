@@ -37,5 +37,26 @@ namespace CapaPresentacion.Formularios
             frm.ShowDialog();
             this.Show();
         }
+
+        private void bajaEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBajaUsuario frm = new FrmBajaUsuario();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void verEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVerEmpleados frmVerEmpleados = new FrmVerEmpleados();
+            this.Hide();
+            frmVerEmpleados.ShowDialog();
+            this.Show();
+        }
+
+        private void editarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

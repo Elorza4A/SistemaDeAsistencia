@@ -41,6 +41,12 @@ namespace CapaPresentacion.Formularios
             empleado.EmpleadoEmpresa.fechaIng = DateTime.Now;
             empleado.EmpleadoEmpresa.tipoContrato = (int)cmbContrato.SelectedValue;
             empleado.EmpleadoEmpresa.tipoPuesto = (int)cmbContrato.SelectedValue;
+            empleado.EmpleadoEmpresa.estatus = true;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                picFoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                empleado.foto = ms.ToArray();
+            }
             try
             {
                 empleado.EmpleadoEmpresa.horaEntrada = TimeSpan.Parse(txtHoraEntrada.Text);
@@ -103,7 +109,6 @@ namespace CapaPresentacion.Formularios
                 picFoto.Image = Image.FromFile(foto.FileName);
                 MemoryStream ms = new MemoryStream();
                 picFoto.Image.Save(ms, ImageFormat.Jpeg);
-                empleado.foto = ms.ToArray();
                 lblFoto.Visible = false;
             }
         }
@@ -156,6 +161,36 @@ namespace CapaPresentacion.Formularios
                     MessageBox.Show("No se capturó ninguna huella.");
                 }
             }
+        }
+
+        private void grbContacto_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grbDomicilio_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grbDatos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFoto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picFoto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

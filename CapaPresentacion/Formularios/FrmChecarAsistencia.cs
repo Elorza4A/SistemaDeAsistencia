@@ -149,7 +149,7 @@ namespace CapaPresentacion.Formularios
                     {
                         int id = emp.EmpleadoPersonal.idEmpleado;
                         byte[] bytes = (byte[])emp.huella;
-                        if (emp.huella != null)
+                        if (emp.huella != null && emp.estatus == true)
                         {
                             MemoryStream ms = new MemoryStream(bytes);
                             template = new DPFP.Template(ms);
