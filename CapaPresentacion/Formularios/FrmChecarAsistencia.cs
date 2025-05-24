@@ -20,15 +20,9 @@ namespace CapaPresentacion.Formularios
             InitializeComponent();
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        private void FrmChecarAsistencia_Load(object sender, EventArgs e)
         {
-
-            
-            EmpleadoPersonal empleado = NegocioEmpleado.VerificarEmpleado(int.Parse(txtId.Text));
-            MemoryStream ms = new MemoryStream(empleado.foto);
-            Bitmap foto = new Bitmap(ms);
-            lblSaludo.Text = empleado.nombre + " "+ empleado.apellidoP;
-            picFoto.Image = foto;
+            lblBienvenida.Enabled = false;
         }
     }
 }

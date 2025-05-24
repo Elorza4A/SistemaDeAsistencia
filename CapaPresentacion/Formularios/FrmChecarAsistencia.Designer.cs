@@ -28,70 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picFoto = new System.Windows.Forms.PictureBox();
-            this.lblSaludo = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.btnCheck = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
+            this.picHuella = new System.Windows.Forms.PictureBox();
+            this.picEmpleado = new System.Windows.Forms.PictureBox();
+            this.lblBienvenida = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picHuella)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
-            // picFoto
+            // picHuella
             // 
-            this.picFoto.Location = new System.Drawing.Point(12, 37);
-            this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(227, 322);
-            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFoto.TabIndex = 0;
-            this.picFoto.TabStop = false;
+            this.picHuella.Location = new System.Drawing.Point(131, 133);
+            this.picHuella.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHuella.Name = "picHuella";
+            this.picHuella.Size = new System.Drawing.Size(174, 204);
+            this.picHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHuella.TabIndex = 0;
+            this.picHuella.TabStop = false;
             // 
-            // lblSaludo
+            // picEmpleado
             // 
-            this.lblSaludo.AutoSize = true;
-            this.lblSaludo.Location = new System.Drawing.Point(379, 120);
-            this.lblSaludo.Name = "lblSaludo";
-            this.lblSaludo.Size = new System.Drawing.Size(75, 16);
-            this.lblSaludo.TabIndex = 1;
-            this.lblSaludo.Text = "Bienvenido";
+            this.picEmpleado.Location = new System.Drawing.Point(490, 49);
+            this.picEmpleado.Name = "picEmpleado";
+            this.picEmpleado.Size = new System.Drawing.Size(308, 376);
+            this.picEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEmpleado.TabIndex = 4;
+            this.picEmpleado.TabStop = false;
             // 
-            // txtId
+            // lblBienvenida
             // 
-            this.txtId.Location = new System.Drawing.Point(365, 215);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
-            this.txtId.TabIndex = 2;
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Location = new System.Drawing.Point(379, 289);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 3;
-            this.btnCheck.Text = "Checar";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.lblBienvenida.Location = new System.Drawing.Point(490, 448);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(308, 80);
+            this.lblBienvenida.TabIndex = 5;
+            this.lblBienvenida.Text = "label1";
+            this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmChecarAsistencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 400);
-            this.Controls.Add(this.btnCheck);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.lblSaludo);
-            this.Controls.Add(this.picFoto);
+            this.ClientSize = new System.Drawing.Size(938, 575);
+            this.Controls.Add(this.lblBienvenida);
+            this.Controls.Add(this.picEmpleado);
+            this.Controls.Add(this.picHuella);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmChecarAsistencia";
             this.Text = "FrmChecarAsistencia";
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
+            this.Load += new System.EventHandler(this.FrmChecarAsistencia_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picHuella)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmpleado)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picFoto;
-        private System.Windows.Forms.Label lblSaludo;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.PictureBox picHuella;
+        private System.Windows.Forms.PictureBox picEmpleado;
+        private System.Windows.Forms.Label lblBienvenida;
     }
 }

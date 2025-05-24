@@ -24,6 +24,7 @@ namespace UnitTest.Test
             {
                 using (var bd = new AsistenciaEntities())
                 {
+                    // verifica si la base existe
                     Assert.IsTrue(bd.Database.Exists(), "No existe la base de datos");
                 }
             }
@@ -40,15 +41,17 @@ namespace UnitTest.Test
         [TestMethod]
         public void InsertarEmpleadoTest()
         {
+            // huella ejemplo
             byte[] datos = new byte[] { 0x01, 0xFF, 0x3A, 0x00 };
             try
             {
+                // empleado prueba
                 EmpleadoPersonal empleado = new EmpleadoPersonal();
                 empleado.nombre = "felipe";
                 empleado.apellidoP = "Elorza";
                 empleado.apellidoM = "Obregon";
                 empleado.fechaNac = DateTime.Now;
-                empleado.telefono = "8130718981";
+                empleado.telefono = "81-3071-8981";
                 empleado.correo = "hola@uanl.com";
                 empleado.direccion = "Monterrey";
                 empleado.EmpleadoEmpresa = new EmpleadoEmpresa();
@@ -61,8 +64,9 @@ namespace UnitTest.Test
                 empleado.EmpleadoEmpresa.salario = 15000m;
                 empleado.EmpleadoEmpresa.estatus = true;
                 empleado.EmpleadoEmpresa.huella = datos;
-                //empleado.foto = File.ReadAllBytes("C:\\Users\\alexe\\source\\repos\\SistemaDeAsistencia\\UnitTest\\Resources\\BobToronja.jpg");
+                empleado.foto = File.ReadAllBytes("C:\\Users\\alexe\\source\\repos\\SistemaDeAsistencia\\UnitTest\\Resources\\BobToronja.jpg");
 
+                // inserta
                 bool condicion = NegocioEmpleado.InsertarEmpleado(empleado);
                 Assert.IsTrue(condicion, "No se registro el empleado");
             }
@@ -80,6 +84,7 @@ namespace UnitTest.Test
         {
             try
             {
+                // devuelve el empleado si lo encontro
                 EmpleadoPersonal empleado = NegocioEmpleado.VerificarEmpleado(21);
                 Console.WriteLine(empleado.nombre);
                 Assert.IsTrue(empleado != null, "No se reactivo el empleado");
@@ -98,6 +103,10 @@ namespace UnitTest.Test
         {
             try
             {
+                // reactiva empleado 16
+                NegocioEmpleado.ReactivarEmpleado(16);
+
+                // baja emmpleado 16
                 bool condicion = NegocioEmpleado.BajaEmpleado(16);
                 Assert.IsTrue(condicion, "No se dio de baja el empleado");
             }
@@ -115,6 +124,9 @@ namespace UnitTest.Test
         {
             try
             {
+                // baja emmpleado 16
+                NegocioEmpleado.BajaEmpleado(21);
+                // reactiva empleado 16
                 bool condicion = NegocioEmpleado.ReactivarEmpleado(21);
                 Assert.IsTrue(condicion, "No se reactivo el empleado");
             }

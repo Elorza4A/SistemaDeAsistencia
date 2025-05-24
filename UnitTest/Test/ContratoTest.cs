@@ -1,29 +1,29 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CapaDatos;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaDatos;
 using CapaNegocio.Negocios;
 
 namespace UnitTest.Test
 {
+
     /// <summary>
     /// Verifica que haya regrese tipos de puestos de la base de datos
     /// </summary>
     [TestClass]
-    public class PuestoTest
+    public class ContratoTest
     {
         [TestMethod]
-        public void ObtenerPuestosTest()
+        public void ObtenerTipoContratoTest()
         {
-            List<Puesto> puestosLista = new List<Puesto>();
-            try 
+            List<Contrato> puestosLista = new List<Contrato>();
+            try
             {
-                puestosLista = NegocioPuesto.ObtenerPuestos();
-
-                Assert.IsTrue(puestosLista.Count > 0, "No se pudo obtener los puestos");
+                puestosLista = NegocioTipoContrato.ObtenerContratos();
+                Assert.IsTrue(puestosLista.Count > 0, "No se pudo obtener los tipos de contrato");
             }
             catch (Exception ex)
             {
@@ -31,6 +31,6 @@ namespace UnitTest.Test
             }
 
         }
-
     }
 }
+

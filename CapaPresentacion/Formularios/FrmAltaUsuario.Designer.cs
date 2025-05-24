@@ -32,7 +32,7 @@
             this.btnFoto = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblFoto = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtHoraSalida = new System.Windows.Forms.MaskedTextBox();
             this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
@@ -43,7 +43,6 @@
             this.cmbContrato = new System.Windows.Forms.ComboBox();
             this.cmbPuesto = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSalario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.grbContacto = new System.Windows.Forms.GroupBox();
@@ -61,7 +60,9 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.ckbGenerarCuenta = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grbContacto.SuspendLayout();
@@ -74,6 +75,7 @@
             this.picFoto.Location = new System.Drawing.Point(29, 53);
             this.picFoto.Name = "picFoto";
             this.picFoto.Size = new System.Drawing.Size(298, 317);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFoto.TabIndex = 13;
             this.picFoto.TabStop = false;
             // 
@@ -100,7 +102,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(298, 46);
             this.btnCancelar.TabIndex = 28;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -121,18 +123,19 @@
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // label6
+            // lblFoto
             // 
-            this.label6.AutoSize = true;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(28, 189);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(299, 23);
-            this.label6.TabIndex = 76;
-            this.label6.Text = "Ingrese la foto del empleado";
+            this.lblFoto.AutoSize = true;
+            this.lblFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFoto.Location = new System.Drawing.Point(32, 189);
+            this.lblFoto.Name = "lblFoto";
+            this.lblFoto.Size = new System.Drawing.Size(299, 23);
+            this.lblFoto.TabIndex = 76;
+            this.lblFoto.Text = "Ingrese la foto del empleado";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ckbGenerarCuenta);
             this.groupBox2.Controls.Add(this.txtHoraSalida);
             this.groupBox2.Controls.Add(this.txtHoraEntrada);
             this.groupBox2.Controls.Add(this.ckbHuella);
@@ -246,16 +249,6 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "TIpo de contrato:";
             // 
-            // txtSalario
-            // 
-            this.txtSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(446, 31);
-            this.txtSalario.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSalario.MaxLength = 13;
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(139, 26);
-            this.txtSalario.TabIndex = 16;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -263,9 +256,9 @@
             this.label9.Location = new System.Drawing.Point(368, 35);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 20);
+            this.label9.Size = new System.Drawing.Size(85, 20);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Salario:";
+            this.label9.Text = "Salario:  $";
             // 
             // label7
             // 
@@ -370,6 +363,7 @@
             // 
             this.dtpNacimiento.Location = new System.Drawing.Point(206, 136);
             this.dtpNacimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpNacimiento.MaxDate = new System.DateTime(2025, 5, 23, 0, 0, 0, 0);
             this.dtpNacimiento.Name = "dtpNacimiento";
             this.dtpNacimiento.Size = new System.Drawing.Size(383, 26);
             this.dtpNacimiento.TabIndex = 12;
@@ -450,9 +444,30 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(124, 66);
+            this.txtTelefono.Mask = "00-0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(126, 26);
             this.txtTelefono.TabIndex = 9;
+            // 
+            // txtSalario
+            // 
+            this.txtSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalario.Location = new System.Drawing.Point(446, 31);
+            this.txtSalario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSalario.MaxLength = 13;
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(139, 26);
+            this.txtSalario.TabIndex = 16;
+            // 
+            // ckbGenerarCuenta
+            // 
+            this.ckbGenerarCuenta.AutoSize = true;
+            this.ckbGenerarCuenta.Location = new System.Drawing.Point(416, 139);
+            this.ckbGenerarCuenta.Name = "ckbGenerarCuenta";
+            this.ckbGenerarCuenta.Size = new System.Drawing.Size(147, 24);
+            this.ckbGenerarCuenta.TabIndex = 32;
+            this.ckbGenerarCuenta.Text = "Generar cuenta";
+            this.ckbGenerarCuenta.UseVisualStyleBackColor = true;
             // 
             // FrmAltaUsuario
             // 
@@ -463,7 +478,7 @@
             this.Controls.Add(this.grbContacto);
             this.Controls.Add(this.grbDomicilio);
             this.Controls.Add(this.grbDatos);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblFoto);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnFoto);
@@ -494,7 +509,7 @@
         private System.Windows.Forms.Button btnFoto;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFoto;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox txtHoraSalida;
         private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
@@ -505,7 +520,6 @@
         private System.Windows.Forms.ComboBox cmbContrato;
         private System.Windows.Forms.ComboBox cmbPuesto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox grbContacto;
@@ -523,6 +537,8 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.CheckBox ckbGenerarCuenta;
     }
 }
