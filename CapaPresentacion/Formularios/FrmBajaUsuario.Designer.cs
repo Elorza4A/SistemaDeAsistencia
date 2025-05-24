@@ -442,6 +442,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmBajaUsuario";
             this.Text = "FrmBajaUsuario";
+            this.Load += new System.EventHandler(this.FrmBajaUsuario_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grbContacto.ResumeLayout(false);

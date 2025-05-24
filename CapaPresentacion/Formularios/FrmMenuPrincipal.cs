@@ -56,7 +56,10 @@ namespace CapaPresentacion.Formularios
 
         private void editarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmActualizarUsuario frmActualizarUsuario = new FrmActualizarUsuario();
+            this.Hide();
+            frmActualizarUsuario.ShowDialog();
+            this.Show();
         }
     }
 }

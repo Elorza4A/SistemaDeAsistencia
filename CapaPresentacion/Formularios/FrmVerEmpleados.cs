@@ -61,8 +61,10 @@ namespace CapaPresentacion.Formularios
                              where emp.estatus == true
                              select new
                              {
+                                 ID = emp.idEmpleado,
                                  Nombre = e.nombre + " " + e.apellidoP + " " + e.apellidoM,
                                  Puesto = p.nombre,
+                                 Salario = emp.salario,
                                  HoraEntrada = emp.horaEntrada,
                                  HoraSalida = emp.horaSalida
                              }).ToList();
@@ -90,8 +92,10 @@ namespace CapaPresentacion.Formularios
                              where p.idPuesto == id && emp.estatus == true
                              select new
                              {
+                                 ID = e.idEmpleado,
                                  Nombre = e.nombre + " " + e.apellidoP + " " + e.apellidoM,
                                  Puesto = p.nombre,
+                                 Salario = emp.salario,
                                  HoraEntrada = emp.horaEntrada,
                                  HoraSalida = emp.horaSalida
                              }).ToList();
@@ -123,6 +127,11 @@ namespace CapaPresentacion.Formularios
             {
                 CargarEmpleados();
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

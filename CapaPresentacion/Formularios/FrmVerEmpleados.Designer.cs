@@ -32,23 +32,24 @@
             this.cmbPuesto = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ckbFiltros = new System.Windows.Forms.CheckBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(21, 56);
+            this.dgvEmpleados.Location = new System.Drawing.Point(25, 127);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.RowTemplate.Height = 24;
-            this.dgvEmpleados.Size = new System.Drawing.Size(750, 427);
+            this.dgvEmpleados.Size = new System.Drawing.Size(868, 427);
             this.dgvEmpleados.TabIndex = 0;
             // 
             // cmbPuesto
             // 
             this.cmbPuesto.FormattingEnabled = true;
-            this.cmbPuesto.Location = new System.Drawing.Point(913, 167);
+            this.cmbPuesto.Location = new System.Drawing.Point(109, 72);
             this.cmbPuesto.Name = "cmbPuesto";
             this.cmbPuesto.Size = new System.Drawing.Size(171, 31);
             this.cmbPuesto.TabIndex = 22;
@@ -58,7 +59,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(825, 170);
+            this.label7.Location = new System.Drawing.Point(21, 75);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 20);
@@ -68,7 +69,7 @@
             // ckbFiltros
             // 
             this.ckbFiltros.AutoSize = true;
-            this.ckbFiltros.Location = new System.Drawing.Point(829, 120);
+            this.ckbFiltros.Location = new System.Drawing.Point(25, 25);
             this.ckbFiltros.Name = "ckbFiltros";
             this.ckbFiltros.Size = new System.Drawing.Size(166, 27);
             this.ckbFiltros.TabIndex = 26;
@@ -76,11 +77,22 @@
             this.ckbFiltros.UseVisualStyleBackColor = true;
             this.ckbFiltros.CheckedChanged += new System.EventHandler(this.ckbFiltros_CheckedChanged);
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(674, 62);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(219, 33);
+            this.btnRegresar.TabIndex = 27;
+            this.btnRegresar.Text = "Regresar al menu";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // FrmVerEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 534);
+            this.ClientSize = new System.Drawing.Size(926, 586);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.ckbFiltros);
             this.Controls.Add(this.cmbPuesto);
             this.Controls.Add(this.label7);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.ComboBox cmbPuesto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox ckbFiltros;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

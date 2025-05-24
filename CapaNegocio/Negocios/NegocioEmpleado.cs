@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
 using System.Text.RegularExpressions;
+using System.Data.Entity.Validation;
 
 namespace CapaNegocio.Negocios
 {
@@ -56,13 +57,64 @@ namespace CapaNegocio.Negocios
             try
             {
                 validarEmpleado(emp);
-                using (var bd = new AsistenciaEntities())
+                using (AsistenciaEntities bd = new AsistenciaEntities())
                 {                        
                     bd.EmpleadoPersonal.Add(emp);
                     int rows = bd.SaveChanges();
                     return rows > 0;
                 }
-               
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var errorMessages = dbEx.EntityValidationErrors
+                    .SelectMany(eve => eve.ValidationErrors)
+                    .Select(ve => ve.ErrorMessage);
+
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                var exceptionMessage = string.Concat(dbEx.Message, " Los errores son: ", fullErrorMessage);
+
+                throw new Exception(exceptionMessage);
+            }
+        }
+
+        /// <summary>
+        /// Actualiza un empleado a la base de datos
+        /// </summary>
+        /// <param name="emp"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Si algun dato esta mal o hay un error en la conexion manda una excepcion</exception>
+        public static bool ActualizarEmpleado(EmpleadoPersonal emp)
+        {
+            try
+            {
+                validarEmpleado(emp);
+                using (AsistenciaEntities bd = new AsistenciaEntities())
+                {
+                    EmpleadoPersonal empleado = bd.EmpleadoPersonal.Find(emp.idEmpleado);
+
+                    if (empleado == null)
+                        throw new Exception("No se encontro el empleado");
+                    if (empleado.EmpleadoEmpresa.estatus == false)
+                        return false;
+
+                    empleado.nombre = emp.nombre;
+                    empleado.apellidoP = emp.apellidoP;
+                    empleado.apellidoM = emp.apellidoM;
+                    empleado.fechaNac = emp.fechaNac;
+                    empleado.telefono = emp.telefono;
+                    empleado.correo = emp.correo;
+                    empleado.direccion = emp.direccion;
+                    empleado.foto = emp.foto;
+
+                    empleado.EmpleadoEmpresa.horaEntrada = emp.EmpleadoEmpresa.horaEntrada;
+                    empleado.EmpleadoEmpresa.horaSalida = emp.EmpleadoEmpresa.horaSalida;
+                    empleado.EmpleadoEmpresa.tipoPuesto = emp.EmpleadoEmpresa.tipoPuesto;
+                    empleado.EmpleadoEmpresa.tipoContrato = emp.EmpleadoEmpresa.tipoContrato;
+                    empleado.EmpleadoEmpresa.salario = emp.EmpleadoEmpresa.salario;
+
+                    return bd.SaveChanges() > 0;
+                }
+
 
             }
             catch (Exception ex)
@@ -81,7 +133,7 @@ namespace CapaNegocio.Negocios
         {
             try
             {
-                using (var bd = new AsistenciaEntities())
+                using (AsistenciaEntities bd = new AsistenciaEntities())
                 {
                     EmpleadoPersonal empleado = bd.EmpleadoPersonal.Find(id);
 
@@ -131,7 +183,7 @@ namespace CapaNegocio.Negocios
         {
             try
             {
-                using (var bd = new AsistenciaEntities())
+                using (AsistenciaEntities bd = new AsistenciaEntities())
                 {
                     EmpleadoEmpresa empleado = bd.EmpleadoEmpresa.Find(id);
 
@@ -161,7 +213,7 @@ namespace CapaNegocio.Negocios
         {
             try
             {
-                using (var bd = new AsistenciaEntities())
+                using (AsistenciaEntities bd = new AsistenciaEntities())
                 {
                     EmpleadoEmpresa empleado = bd.EmpleadoEmpresa.Find(id);
 

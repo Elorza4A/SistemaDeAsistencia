@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Formularios
 {
-    partial class FrmAltaUsuario
+    partial class FrmActualizarUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picFoto = new System.Windows.Forms.PictureBox();
-            this.btnFoto = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.lblFoto = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtHoraSalida = new System.Windows.Forms.MaskedTextBox();
             this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
-            this.ckbHuella = new System.Windows.Forms.CheckBox();
             this.btnHuella = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,83 +56,23 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
+            this.picFoto = new System.Windows.Forms.PictureBox();
+            this.btnId = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.ckbHabilitar = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.grbContacto.SuspendLayout();
             this.grbDomicilio.SuspendLayout();
             this.grbDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picFoto
-            // 
-            this.picFoto.Location = new System.Drawing.Point(29, 53);
-            this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(298, 317);
-            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFoto.TabIndex = 13;
-            this.picFoto.TabStop = false;
-            this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
-            // 
-            // btnFoto
-            // 
-            this.btnFoto.Location = new System.Drawing.Point(29, 377);
-            this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(298, 42);
-            this.btnFoto.TabIndex = 14;
-            this.btnFoto.Text = "Seleccionar foto";
-            this.btnFoto.UseVisualStyleBackColor = true;
-            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Red;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(29, 541);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(298, 46);
-            this.btnCancelar.TabIndex = 28;
-            this.btnCancelar.Text = "Volver";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.Green;
-            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(176)))), ((int)(((byte)(149)))));
-            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmar.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(29, 457);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(298, 46);
-            this.btnConfirmar.TabIndex = 10;
-            this.btnConfirmar.Text = "Registrar empleado";
-            this.btnConfirmar.UseVisualStyleBackColor = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            // 
-            // lblFoto
-            // 
-            this.lblFoto.AutoSize = true;
-            this.lblFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblFoto.Location = new System.Drawing.Point(32, 189);
-            this.lblFoto.Name = "lblFoto";
-            this.lblFoto.Size = new System.Drawing.Size(299, 23);
-            this.lblFoto.TabIndex = 76;
-            this.lblFoto.Text = "Ingrese la foto del empleado";
-            this.lblFoto.Click += new System.EventHandler(this.lblFoto_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtHoraSalida);
             this.groupBox2.Controls.Add(this.txtHoraEntrada);
-            this.groupBox2.Controls.Add(this.ckbHuella);
             this.groupBox2.Controls.Add(this.btnHuella);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
@@ -148,16 +82,16 @@
             this.groupBox2.Controls.Add(this.txtSalario);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(381, 256);
+            this.groupBox2.Location = new System.Drawing.Point(397, 236);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(612, 186);
-            this.groupBox2.TabIndex = 79;
+            this.groupBox2.TabIndex = 88;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Trabajo";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtHoraSalida
             // 
@@ -181,25 +115,15 @@
             this.txtHoraEntrada.TabIndex = 30;
             this.txtHoraEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ckbHuella
-            // 
-            this.ckbHuella.AutoSize = true;
-            this.ckbHuella.Enabled = false;
-            this.ckbHuella.Location = new System.Drawing.Point(416, 91);
-            this.ckbHuella.Name = "ckbHuella";
-            this.ckbHuella.Size = new System.Drawing.Size(18, 17);
-            this.ckbHuella.TabIndex = 24;
-            this.ckbHuella.UseVisualStyleBackColor = true;
-            // 
             // btnHuella
             // 
             this.btnHuella.Location = new System.Drawing.Point(446, 80);
             this.btnHuella.Name = "btnHuella";
             this.btnHuella.Size = new System.Drawing.Size(141, 36);
             this.btnHuella.TabIndex = 23;
-            this.btnHuella.Text = "Registrar huella";
+            this.btnHuella.Text = "Actualizar huella";
             this.btnHuella.UseVisualStyleBackColor = true;
-            this.btnHuella.Click += new System.EventHandler(this.btnHuella_Click_1);
+            this.btnHuella.Click += new System.EventHandler(this.btnHuella_Click);
             // 
             // label10
             // 
@@ -288,16 +212,16 @@
             this.grbContacto.Controls.Add(this.txtCorreo);
             this.grbContacto.Controls.Add(this.label8);
             this.grbContacto.Controls.Add(this.label4);
+            this.grbContacto.Enabled = false;
             this.grbContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbContacto.Location = new System.Drawing.Point(381, 566);
+            this.grbContacto.Location = new System.Drawing.Point(397, 546);
             this.grbContacto.Margin = new System.Windows.Forms.Padding(4);
             this.grbContacto.Name = "grbContacto";
             this.grbContacto.Padding = new System.Windows.Forms.Padding(4);
             this.grbContacto.Size = new System.Drawing.Size(613, 107);
-            this.grbContacto.TabIndex = 80;
+            this.grbContacto.TabIndex = 89;
             this.grbContacto.TabStop = false;
             this.grbContacto.Text = "Contacto";
-            this.grbContacto.Enter += new System.EventHandler(this.grbContacto_Enter);
             // 
             // txtTelefono
             // 
@@ -341,16 +265,16 @@
             // grbDomicilio
             // 
             this.grbDomicilio.Controls.Add(this.txtDomicilio);
+            this.grbDomicilio.Enabled = false;
             this.grbDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDomicilio.Location = new System.Drawing.Point(381, 469);
+            this.grbDomicilio.Location = new System.Drawing.Point(397, 449);
             this.grbDomicilio.Margin = new System.Windows.Forms.Padding(4);
             this.grbDomicilio.Name = "grbDomicilio";
             this.grbDomicilio.Padding = new System.Windows.Forms.Padding(4);
             this.grbDomicilio.Size = new System.Drawing.Size(612, 70);
-            this.grbDomicilio.TabIndex = 78;
+            this.grbDomicilio.TabIndex = 87;
             this.grbDomicilio.TabStop = false;
             this.grbDomicilio.Text = "Domicilio";
-            this.grbDomicilio.Enter += new System.EventHandler(this.grbDomicilio_Enter);
             // 
             // txtDomicilio
             // 
@@ -370,16 +294,16 @@
             this.grbDatos.Controls.Add(this.txtNombre);
             this.grbDatos.Controls.Add(this.label2);
             this.grbDatos.Controls.Add(this.label3);
+            this.grbDatos.Enabled = false;
             this.grbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDatos.Location = new System.Drawing.Point(380, 53);
+            this.grbDatos.Location = new System.Drawing.Point(396, 33);
             this.grbDatos.Margin = new System.Windows.Forms.Padding(4);
             this.grbDatos.Name = "grbDatos";
             this.grbDatos.Padding = new System.Windows.Forms.Padding(4);
             this.grbDatos.Size = new System.Drawing.Size(613, 176);
-            this.grbDatos.TabIndex = 77;
+            this.grbDatos.TabIndex = 86;
             this.grbDatos.TabStop = false;
             this.grbDatos.Text = "Datos";
-            this.grbDatos.Enter += new System.EventHandler(this.grbDatos_Enter);
             // 
             // dtpNacimiento
             // 
@@ -463,28 +387,99 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Apellido paterno:";
             // 
-            // FrmAltaUsuario
+            // picFoto
+            // 
+            this.picFoto.Location = new System.Drawing.Point(45, 33);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(298, 317);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 82;
+            this.picFoto.TabStop = false;
+            // 
+            // btnId
+            // 
+            this.btnId.Location = new System.Drawing.Point(45, 440);
+            this.btnId.Name = "btnId";
+            this.btnId.Size = new System.Drawing.Size(298, 35);
+            this.btnId.TabIndex = 95;
+            this.btnId.Text = "Buscar por id";
+            this.btnId.UseVisualStyleBackColor = true;
+            this.btnId.Click += new System.EventHandler(this.btnId_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(45, 390);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(298, 32);
+            this.txtId.TabIndex = 94;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.BackColor = System.Drawing.Color.Green;
+            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmar.Enabled = false;
+            this.btnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(176)))), ((int)(((byte)(149)))));
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Location = new System.Drawing.Point(45, 501);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(298, 46);
+            this.btnConfirmar.TabIndex = 92;
+            this.btnConfirmar.Text = "Actualizar datos";
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(45, 612);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(298, 46);
+            this.btnCancelar.TabIndex = 93;
+            this.btnCancelar.Text = "Volver";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // ckbHabilitar
+            // 
+            this.ckbHabilitar.AutoSize = true;
+            this.ckbHabilitar.Enabled = false;
+            this.ckbHabilitar.Location = new System.Drawing.Point(45, 571);
+            this.ckbHabilitar.Name = "ckbHabilitar";
+            this.ckbHabilitar.Size = new System.Drawing.Size(189, 27);
+            this.ckbHabilitar.TabIndex = 96;
+            this.ckbHabilitar.Text = "Habilitar edicion";
+            this.ckbHabilitar.UseVisualStyleBackColor = true;
+            this.ckbHabilitar.CheckedChanged += new System.EventHandler(this.ckbHabilitar_CheckedChanged);
+            // 
+            // FrmActualizarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 730);
+            this.ClientSize = new System.Drawing.Size(1048, 736);
+            this.Controls.Add(this.ckbHabilitar);
+            this.Controls.Add(this.btnId);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grbContacto);
             this.Controls.Add(this.grbDomicilio);
             this.Controls.Add(this.grbDatos);
-            this.Controls.Add(this.lblFoto);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnFoto);
             this.Controls.Add(this.picFoto);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmAltaUsuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alta de empleado";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmAltaUsuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FrmActualizarUsuario";
+            this.Text = "FrmActualizarUsuario";
+            this.Load += new System.EventHandler(this.FrmActualizarUsuario_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grbContacto.ResumeLayout(false);
@@ -493,30 +488,28 @@
             this.grbDomicilio.PerformLayout();
             this.grbDatos.ResumeLayout(false);
             this.grbDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox picFoto;
-        private System.Windows.Forms.Button btnFoto;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.Label lblFoto;
+
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox txtHoraSalida;
         private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
-        private System.Windows.Forms.CheckBox ckbHuella;
         private System.Windows.Forms.Button btnHuella;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbContrato;
         private System.Windows.Forms.ComboBox cmbPuesto;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox grbContacto;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
@@ -531,7 +524,11 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.PictureBox picFoto;
+        private System.Windows.Forms.Button btnId;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.CheckBox ckbHabilitar;
     }
 }

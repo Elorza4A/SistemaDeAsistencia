@@ -115,7 +115,11 @@ namespace CapaPresentacion.Formularios
         {
             this.Invoke(new MethodInvoker(delegate
             {
-                MessageBox.Show("Bienvenido " + empleado.nombre + " " + empleado.apellidoP) ;
+                MemoryStream ms = new MemoryStream(empleado.foto);
+                Bitmap bm = new Bitmap(ms);
+                picEmpleado.Image = bm;
+                lblBienvenida.Visible = true;
+                lblBienvenida.Text = "Buen dia, " + empleado.nombre + " " + empleado.apellidoP;
             }));
         }
 
@@ -201,7 +205,7 @@ namespace CapaPresentacion.Formularios
 
         private void FrmChecarAsistencia_Load(object sender, EventArgs e)
         {
-            lblBienvenida.Enabled = false;
+            lblBienvenida.Visible = false;
             Init();
             IniciarCaptura();
         }

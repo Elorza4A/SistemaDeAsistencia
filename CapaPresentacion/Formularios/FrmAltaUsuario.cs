@@ -40,7 +40,7 @@ namespace CapaPresentacion.Formularios
             empleado.EmpleadoEmpresa.idEmpleado = empleado.idEmpleado;
             empleado.EmpleadoEmpresa.fechaIng = DateTime.Now;
             empleado.EmpleadoEmpresa.tipoContrato = (int)cmbContrato.SelectedValue;
-            empleado.EmpleadoEmpresa.tipoPuesto = (int)cmbContrato.SelectedValue;
+            empleado.EmpleadoEmpresa.tipoPuesto = (int)cmbPuesto.SelectedValue;
             empleado.EmpleadoEmpresa.estatus = true;
             using (MemoryStream ms = new MemoryStream())
             {

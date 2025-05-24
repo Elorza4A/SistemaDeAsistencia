@@ -85,5 +85,10 @@ namespace CapaPresentacion.Formularios
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void FrmBajaUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

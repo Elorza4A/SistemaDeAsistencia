@@ -37,7 +37,7 @@
             // 
             // picHuella
             // 
-            this.picHuella.Location = new System.Drawing.Point(131, 133);
+            this.picHuella.Location = new System.Drawing.Point(61, 134);
             this.picHuella.Margin = new System.Windows.Forms.Padding(4);
             this.picHuella.Name = "picHuella";
             this.picHuella.Size = new System.Drawing.Size(174, 204);
@@ -47,7 +47,7 @@
             // 
             // picEmpleado
             // 
-            this.picEmpleado.Location = new System.Drawing.Point(490, 49);
+            this.picEmpleado.Location = new System.Drawing.Point(340, 24);
             this.picEmpleado.Name = "picEmpleado";
             this.picEmpleado.Size = new System.Drawing.Size(308, 376);
             this.picEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -56,7 +56,7 @@
             // 
             // lblBienvenida
             // 
-            this.lblBienvenida.Location = new System.Drawing.Point(490, 448);
+            this.lblBienvenida.Location = new System.Drawing.Point(340, 423);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(308, 80);
             this.lblBienvenida.TabIndex = 5;
@@ -67,14 +67,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 575);
+            this.ClientSize = new System.Drawing.Size(703, 575);
             this.Controls.Add(this.lblBienvenida);
             this.Controls.Add(this.picEmpleado);
             this.Controls.Add(this.picHuella);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmChecarAsistencia";
-            this.Text = "FrmChecarAsistencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Checador";
             this.Load += new System.EventHandler(this.FrmChecarAsistencia_Load);
             this.Leave += new System.EventHandler(this.FrmChecarAsistencia_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.picHuella)).EndInit();
